@@ -13,11 +13,17 @@ export default class {
    * @param callback A callback function to invoke when validation completes
    * @returns Promise
    */
+  validate(source: ValidateSource): Promise<void>;
   validate(
     source: ValidateSource,
-    options?: ValidateOption,
-    callback?: (errors: ErrorList, fields: FieldErrorList) => void,
+    callback: (errors: ErrorList, fields: FieldErrorList) => void,
   ): Promise<void>;
+  validate(
+    source: ValidateSource,
+    options: ValidateOption,
+    callback: (errors: ErrorList, fields: FieldErrorList) => void,
+  ): Promise<void>;
+  define(rule: Rules): void;
 }
 
 export type RuleType =
